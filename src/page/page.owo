@@ -1,0 +1,121 @@
+<template lang="pug">
+.home
+  .conn
+    .left-menu
+      .icon-box.active
+        .icon &#xe600;
+        span 消息
+      .icon-box
+        .icon &#xe7ef;
+        span 学习
+      .icon-box
+        .icon &#xe63f;
+        span 网盘
+    .show-list
+      .item-list.active
+        .icon &#xe65e;
+        span 家校通知
+      .line
+      .item-list
+        .icon &#xe62d;
+        span 学科作业
+      .line
+      .item-list
+        .icon &#xe601;
+        span 语文学习
+      .item-list
+        .icon &#xe601;
+        span 数学学习
+      .item-list
+        .icon &#xe601;
+        span 英语学习
+      .item-list
+        .icon &#xe604;
+        span 编程学习
+      .item-list
+        .icon &#xe601;
+        span 其他学科
+      .line
+      .item-list
+        .icon &#xe601;
+        span 错题集
+      .line
+      .item-list
+        .icon &#xe6c9;
+        span 打卡任务
+      .line
+      .item-list
+        .icon &#xebfd;
+        span 测试卷
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      
+    }
+  }
+</script>
+
+
+<style lang="less">
+.conn {
+  display: flex;
+  height: 100%;
+}
+.left-menu {
+  background-color: #e4eaf4;
+  width: 40px;
+  height: 100%;
+  
+  .icon-box {
+    width: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #9ea3a9;
+    font-size: 28px;
+    cursor: pointer;
+    .icon {
+      line-height: 30px;
+    }
+    span {
+      font-size: 14px;
+      display: block;
+    }
+  }
+  .active {
+    color: #009fe9;
+  }
+}
+.show-list {
+  width: 200px;
+  background-color: #f5f9ff;
+  .active {
+    background-color: white;
+  }
+  .item-list {
+    line-height: 35px;
+    padding: 5px 10px;
+    display: flex;
+    color: #333;
+    cursor: pointer;
+    .icon {
+      width: 35px;
+      text-align: center;
+      font-size: 26px;
+      background-color: #ffac00;
+      color: white;
+      border-radius: 7px;
+    }
+    span {
+      font-weight: bold;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+  }
+}
+.line {
+  margin: 0 5px;
+  border-bottom: 1px dotted gainsboro;
+}
+</style>
