@@ -28,8 +28,27 @@
   <body>
     
     <!-- 页面[page]-->
-    <div class="home page" template="page" style="display: block;"><div class="conn"><div class="left-menu"><div class="icon-box active"><div class="icon"></div><span>消息</span></div><div class="icon-box"><div class="icon"></div><span>学习</span></div><div class="icon-box"><div class="icon"></div><span>网盘</span></div></div><div class="show-list"><div class="item-list active"><div class="icon"></div><span>家校通知</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>学科作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>语文学习</span></div><div class="item-list"><div class="icon"></div><span>数学学习</span></div><div class="item-list"><div class="icon"></div><span>英语学习</span></div><div class="item-list"><div class="icon"></div><span>编程学习</span></div><div class="item-list"><div class="icon"></div><span>其他学科</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>错题集</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>打卡任务</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>测试卷</span></div></div></div></div>
+    <div class="home page" template="page" style="display: block;"><div class="conn"><div class="left-menu"><div class="icon-box active"><div class="icon"></div><span>消息</span></div><div class="icon-box"><div class="icon"></div><span>学习</span></div><div class="icon-box"><div class="icon"></div><span>网盘</span></div></div><div class="show-list"><div class="item-list active" go="/view-content=info" o-class-active="this.view.content._activeName == 'info'"><div class="icon"></div><span>家校通知</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>学科作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>语文学习</span></div><div class="item-list"><div class="icon"></div><span>数学学习</span></div><div class="item-list"><div class="icon"></div><span>英语学习</span></div><div class="item-list"><div class="icon"></div><span>编程学习</span></div><div class="item-list"><div class="icon"></div><span>其他学科</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>错题集</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>打卡任务</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>测试卷</span></div></div><div class="router" view="content" o-if="this.data.config"><div class="info router-item" route="info"><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div></div></div></div></div>
     
+<!-- 框架script文件 -->
+<script src="./static/js/owo.core.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+owo.script = {
+  "page": {
+    "created": function created() {
+      console.log('sds');
+    },
+    "view": {
+      "content": [{
+        "prop": {
+          "route": "info"
+        },
+        "_name": "info"
+      }]
+    }
+  }
+};
+</script>
 
     <script src="https://cunchu.site/owo/script/idangerous.swiper2.7.6.min.js" type="text/javascript"  charset="UTF-8"></script>
     <script src="./static/js/main.js" type="text/javascript"  charset="UTF-8"></script>

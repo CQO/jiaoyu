@@ -12,7 +12,7 @@
         .icon &#xe63f;
         span 网盘
     .show-list
-      .item-list.active
+      .item-list.active(go="/view-content=info" o-class-active="this.view.content._activeName == 'info'")
         .icon &#xe65e;
         span 家校通知
       .line
@@ -47,12 +47,14 @@
       .item-list
         .icon &#xebfd;
         span 测试卷
+    view.router(name="content" o-if="this.data.config")
+      .router-item(route="info" src="./src/route/info.owo")
 </template>
 
 <script>
   module.exports = {
     created: function () {
-      
+      console.log('sds')
     }
   }
 </script>
@@ -117,5 +119,10 @@
 .line {
   margin: 0 5px;
   border-bottom: 1px dotted gainsboro;
+}
+.router {
+  width: calc(100% - 260px);
+  height: calc(100% - 20px);
+  padding: 10px;
 }
 </style>

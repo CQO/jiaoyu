@@ -54,6 +54,25 @@ li {
   list-style: none;
 }
 
+.info .message-item {
+  margin-bottom: 20px;
+}
+
+.info .message-item .time {
+  line-height: 30px;
+  font-size: 18px;
+  color: #666;
+}
+
+.info .message-item .message {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: honeydew;
+  font-size: 18px;
+  text-indent: 2em;
+  line-height: 30px;
+}
 .conn {
   display: flex;
   height: 100%;
@@ -122,5 +141,11 @@ li {
 .line {
   margin: 0 5px;
   border-bottom: 1px dotted gainsboro;
+}
+
+.router {
+  width: calc(100% - 260px);
+  height: calc(100% - 20px);
+  padding: 10px;
 }
 
