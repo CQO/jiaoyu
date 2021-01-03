@@ -1,5 +1,5 @@
-// Thu Dec 17 2020 00:49:31 GMT+0800 (GMT+08:00)
-var owo = {tool: {},state: {},};
+// Mon Jan 04 2021 00:47:48 GMT+0800 (GMT+08:00)
+var owo = {tool: {},state: {},event: {}};
 /* 方法合集 */
 var _owo = {
   isIE: (window.navigator.userAgent.indexOf("MSIE") >= 1),
@@ -590,17 +590,18 @@ function View(routeList, viewName, entryDom, pageScript) {
 owo.state.routeBusy = false
 
 View.prototype.showIndex = function (ind) {
+  var viewName = this._viewName
   if (owo.state.routeBusy) return
   owo.state.routeBusy = true
   // 防止来回快速切换页面出问题
-  if (owo.state[this._viewName + '_changeing']) return
-  owo.state[this._viewName + '_changeing'] = true
+  if (owo.state[viewName + '_changeing']) return
+  owo.state[viewName + '_changeing'] = true
   this._activeIndex = this._activeIndex
   var oldRoute = this._list[this._activeIndex]
   // 如果新旧路由和旧路由是一样的那么不做处理
   if (this._activeIndex == ind) {
     oldRoute.$el.setAttribute('route-active', 'true')
-    owo.state[this._viewName + '_changeing'] = false
+    owo.state[viewName + '_changeing'] = false
     owo.state.routeBusy = false
     return
   }
@@ -611,20 +612,25 @@ View.prototype.showIndex = function (ind) {
   newRoute.owoPageInit()
   newRoute.handleEvent()
   if (oldRoute) {
-    if (owo.state._animation || owo.globalAni) {
-      var animationValue = owo.state._animation || owo.globalAni
+    function clearRoute () {
+      owo.state[viewName + '_changeing'] = false
+      oldRoute.$el.setAttribute('route-active', 'false')
+      owo.state.routeBusy = false
+    }
+    var animationValue = owo.state._animation || owo.globalAni
+    if (animationValue) {
+      
       if (newRoute._index > oldRoute._index) _owo.animation(oldRoute.$el, newRoute.$el, animationValue.in, animationValue.out)
       else _owo.animation(oldRoute.$el, newRoute.$el, animationValue.backIn, animationValue.backOut)
+      // 加个延时隐藏不然直接隐藏动画效果不好
+      setTimeout(clearRoute, 800);
     } else {
       _owo.animation(oldRoute.$el, newRoute.$el)
+      clearRoute()
     }
-    // 加个延时隐藏不然直接隐藏动画效果不好
-    setTimeout(() => {
-      owo.state[this._viewName + '_changeing'] = false
-      oldRoute.$el.setAttribute('route-active', 'false')
-    }, 800);
+    
   } else {
-    owo.state[this._viewName + '_changeing'] = false
+    owo.state[viewName + '_changeing'] = false
   }
   newRoute.$el.setAttribute('route-active', 'true')
   owo.onViewChange()
@@ -632,11 +638,12 @@ View.prototype.showIndex = function (ind) {
 }
 
 View.prototype.showName = function (name) {
+  var viewName = this._viewName
   if (owo.state.routeBusy) return
   owo.state.routeBusy = true
   // 防止来回快速切换页面出问题
-  if (owo.state[this._viewName + '_changeing']) return
-  owo.state[this._viewName + '_changeing'] = true
+  if (owo.state[viewName + '_changeing']) return
+  owo.state[viewName + '_changeing'] = true
 
   var oldRoute = this[this._activeName]
   var newRoute = this[name]
@@ -644,32 +651,34 @@ View.prototype.showName = function (name) {
   // 如果新旧路由和旧路由是一样的那么不做处理
   if (this._activeName == name) {
     oldRoute.$el.setAttribute('route-active', 'true')
-    owo.state[this._viewName + '_changeing'] = false
+    owo.state[viewName + '_changeing'] = false
     return
   }
   // 根据index
   this["_activeName"] = newRoute._name
   this["_activeIndex"] = newRoute._index
   // 如果没有旧路由，那么直接显示新路由就行
-  
   newRoute.owoPageInit()
   newRoute.handleEvent()
   if (oldRoute) {
-    if (owo.state._animation || owo.globalAni) {
-      var animationValue = owo.state._animation || owo.globalAni
-      if (newRoute._index > oldRoute._index) _owo.animation(oldRoute.$el, newRoute.$el, animationValue.in, animationValue.out)
-      else _owo.animation(oldRoute.$el, newRoute.$el, animationValue.backIn, animationValue.backOut)
-    } else {
-      _owo.animation(oldRoute.$el, newRoute.$el)
-    }
-    // 加个延时隐藏不然直接隐藏动画效果不好
-    setTimeout(() => {
-      owo.state[this._viewName + '_changeing'] = false
+    function clearRoute () {
+      owo.state[viewName + '_changeing'] = false
       oldRoute.$el.setAttribute('route-active', 'false')
       owo.state.routeBusy = false
-    }, 800);
+    }
+    var animationValue = owo.state._animation || owo.globalAni
+    if (animationValue) {
+      if (newRoute._index > oldRoute._index) _owo.animation(oldRoute.$el, newRoute.$el, animationValue.in, animationValue.out)
+      else _owo.animation(oldRoute.$el, newRoute.$el, animationValue.backIn, animationValue.backOut)
+      // 加个延时隐藏不然直接隐藏动画效果不好
+      setTimeout(clearRoute, 800);
+    } else {
+      _owo.animation(oldRoute.$el, newRoute.$el)
+      clearRoute()
+    }
+    
   } else {
-    owo.state[this._viewName + '_changeing'] = false
+    owo.state[viewName + '_changeing'] = false
     owo.state.routeBusy = false
   }
   newRoute.$el.setAttribute('route-active', 'true')
@@ -855,41 +864,129 @@ _owo.ready = (function() {               //这个函数返回whenReady()函数
   }
 })()
 
-// 单页面-页面资源加载完毕事件
+
+_owo.getarg = function (url) { // 获取URL #后面内容
+  if (!url) return null
+  var arg = url.split("#");
+  return arg[1] ? arg[1].split('?')[0] : null
+}
+
+// 页面资源加载完毕事件
 _owo.showPage = function() {
+  var _index = 0
   for (var key in owo.script) {
     owo.script[key].$el = document.querySelector('.page[template="' + key + '"]')
     owo.script[key] = new Page(owo.script[key])
+    owo.script[key]._index = _index++
+    owo.script[key]._name = key
   }
-  var firstPageList = document.querySelector('.page[template]')
-  // 允许项目只有模块没有页面
-  if (firstPageList) {
-    owo.entry = firstPageList.getAttribute('template')
-    // 查找入口
-    if (!owo.script[owo.entry] || !owo.script[owo.entry].$el) {
-      console.error('找不到页面入口!')
-    } else {
-      owo.activePage = owo.entry
-      var activeScript = owo.script[owo.activePage]
-      activeScript.owoPageInit()
-      activeScript.handleEvent()
+  owo.entry = document.querySelector('[template]').getAttribute('template')
+  // 取出URL地址判断当前所在页面
+  var pageArg = _owo.getarg(window.location.hash)
+  
+  
+
+  // 从配置项中取出程序入口
+  var page = pageArg ? pageArg : owo.entry
+  if (page) {
+    if (!owo.script[page] || !owo.script[page].$el) {
+      console.error('入口文件设置错误,错误值为: ', page)
+      page = owo.script[page].$el.getAttribute('template')
+      window.location.replace('#' + page)
+      return
     }
+    // 显示主页面
+    owo.script[page].$el.style.display = ''
+    window.owo.activePage = page
+    owo.script[page].owoPageInit()
+    owo.script[page].handleEvent()
+    // 处理插件
+    var plugList = document.querySelectorAll('.owo-block')
+    for (var ind = 0; ind < plugList.length; ind++) {
+      var plugEL = plugList[ind]
+      var plugName = plugEL.getAttribute('template')
+      owo.script[plugName].$el = plugEL
+      owo.script[plugName].owoPageInit()
+      owo.script[plugName].handleEvent()
+      plugEL.style.display = ''
+    }
+    
+  } else {
+    console.error('未设置程序入口!')
   }
-  // 处理插件
-  var plugList = document.querySelectorAll('.owo-block')
-  for (var ind = 0; ind < plugList.length; ind++) {
-    var plugEL = plugList[ind]
-    var plugName = plugEL.getAttribute('template')
-    owo.script[plugName].$el = plugEL
-    owo.script[plugName].owoPageInit()
-    owo.script[plugName].handleEvent()
-    plugEL.style.display = ''
-  }
+  // 设置当前页面为活跃页面
+  owo.state.newUrlParam = _owo.getarg(document.URL)
 }
 
+// url发生改变事件
+_owo.hashchange = function () {
+  // 判断是否正在忙碌
+  if (owo.state.hashchange) {
+    setTimeout(function () {
+      _owo.hashchange()
+    }, 300);
+    return
+  }
+  owo.state.hashchange = true
+  // 这样处理而不是直接用event中的URL，是因为需要兼容IE
+  owo.state.oldUrlParam = owo.state.newUrlParam;
+  owo.state.newUrlParam = _owo.getarg(document.URL); 
+  // console.log(owo.state.oldUrlParam, owo.state.newUrlParam)
+  // 如果旧页面不存在则为默认页面
+  if (!owo.state.oldUrlParam) owo.state.oldUrlParam = owo.entry;
+  var newUrlParam = owo.state.newUrlParam;
+  // 如果新页面和旧页面一样那么不执行跳转
+  if (owo.state.oldUrlParam == newUrlParam) {
+    owo.state.hashchange = false
+    return
+  }
+  // 如果没有跳转到任何页面则跳转到主页
+  if (newUrlParam === undefined) {
+    newUrlParam = owo.entry;
+  }
+
+  // 如果没有发生页面跳转则不需要进行操作
+  // 进行页面切换
+  switchPage(owo.state.oldUrlParam, newUrlParam);
+}
+
+// 切换页面前的准备工作
+function switchPage (oldUrlParam, newUrlParam) {
+  
+  var oldPage = oldUrlParam ? oldUrlParam.split('&')[0] : owo.entry
+  var newPage = newUrlParam ? newUrlParam.split('&')[0] : owo.entry
+  // 查找页面跳转前的page页(dom节点)
+  var oldDom = document.querySelector('.page[template="' + oldPage + '"]')
+  var newDom = document.querySelector('.page[template="' + newPage + '"]')
+  
+  if (!newDom) {console.error('页面不存在!'); return}
+
+  setTimeout(function () {
+    window.owo.activePage = newPage
+    window.owo.script[newPage].$el = newDom
+    window.owo.script[newPage].owoPageInit()
+    window.owo.script[newPage].handleEvent()
+    setTimeout(function () {
+      owo.state.hashchange = false
+    }, 1000);
+    // 显示路由
+    // if (window.owo.script[newPage].view) _owo.getViewChange()
+  }, 0)
+
+  
+  
+  if (oldDom) {
+    // 隐藏掉旧的节点
+    oldDom.style.display = 'none'
+  }
+  // 查找页面跳转后的page
+  newDom.style.display = ''
+}
+
+// 防止有些平台不支持onhashchange
+if (window.onhashchange) {window.onhashchange = _owo.hashchange;} else {window.onpopstate = _owo.hashchange;}
 // 执行页面加载完毕方法
 _owo.ready(_owo.showPage)
-
 
 
 // 这是用于代码调试的自动刷新代码，他不应该出现在正式上线版本!

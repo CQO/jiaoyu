@@ -2,13 +2,13 @@
 .home
   .conn
     .left-menu
-      .icon-box.active
+      .icon-box.active(go="page")
         .icon &#xe600;
         span 消息
-      .icon-box
+      .icon-box(go="xuexi")
         .icon &#xe7ef;
         span 学习
-      .icon-box
+      .icon-box(go="wangpan")
         .icon &#xe63f;
         span 网盘
     .show-list
@@ -61,34 +61,7 @@
 
 
 <style lang="less">
-.conn {
-  display: flex;
-  height: 100%;
-}
-.left-menu {
-  background-color: #e4eaf4;
-  width: 40px;
-  height: 100%;
-  
-  .icon-box {
-    width: 40px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #9ea3a9;
-    font-size: 28px;
-    cursor: pointer;
-    .icon {
-      line-height: 30px;
-    }
-    span {
-      font-size: 14px;
-      display: block;
-    }
-  }
-  .active {
-    color: #009fe9;
-  }
-}
+
 .show-list {
   width: 200px;
   background-color: #f5f9ff;

@@ -4,7 +4,7 @@
     <!-- 页面的元信息 -->
     <title>测试预览页面</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=1000, user-scalable=yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <meta name="format-detection" content="telephone=no, email=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
@@ -28,7 +28,11 @@
   <body>
     
     <!-- 页面[page]-->
-    <div class="home page" template="page" style="display: block;"><div class="conn"><div class="left-menu"><div class="icon-box active"><div class="icon"></div><span>消息</span></div><div class="icon-box"><div class="icon"></div><span>学习</span></div><div class="icon-box"><div class="icon"></div><span>网盘</span></div></div><div class="show-list"><div class="item-list active" go="/view-content=info" o-class-active="this.view.content._activeName == 'info'"><div class="icon"></div><span>家校通知</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>学科作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>语文学习</span></div><div class="item-list"><div class="icon"></div><span>数学学习</span></div><div class="item-list"><div class="icon"></div><span>英语学习</span></div><div class="item-list"><div class="icon"></div><span>编程学习</span></div><div class="item-list"><div class="icon"></div><span>其他学科</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>错题集</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>打卡任务</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>测试卷</span></div></div><div class="router" view="content" o-if="this.data.config"><div class="info router-item" route="info"><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div></div></div></div></div>
+    <div class="home page" template="page" style="display: none;"><div class="conn"><div class="left-menu"><div class="icon-box active" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box" go="wangpan"><div class="icon"></div><span>网盘</span></div></div><div class="show-list"><div class="item-list active" go="/view-content=info" o-class-active="this.view.content._activeName == 'info'"><div class="icon"></div><span>家校通知</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>学科作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>语文学习</span></div><div class="item-list"><div class="icon"></div><span>数学学习</span></div><div class="item-list"><div class="icon"></div><span>英语学习</span></div><div class="item-list"><div class="icon"></div><span>编程学习</span></div><div class="item-list"><div class="icon"></div><span>其他学科</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>错题集</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>打卡任务</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>测试卷</span></div></div><div class="router" view="content" o-if="this.data.config"><div class="info router-item" route="info"><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div><div class="message-item"><div class="time">2020-02-24 08:00</div><div class="message">根据省办公厅关于国庆节、中秋节放假通知精神，结合我校工作实际，国庆节、中秋节假期时间为9月30日至10月7日，共8天。其中9月30日 为中秋节（周日）；10月1日、2日、3日为国庆节（周一至周三）；前四天为法定节假日。10月4日、5日、6日、7日放假调休，9月29日（周六）、10月8日（周一）照常上课！</div></div></div></div></div></div>
+    <!-- 页面[xuexi]-->
+    <div class="xuexi page" template="xuexi" style="display: none;"><div class="conn"><div class="left-menu"><div class="icon-box" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box active" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box" go="wangpan"><div class="icon"></div><span>网盘</span></div></div></div><div class="right-box"></div></div>
+    <!-- 页面[wangpan]-->
+    <div class="wangpan page" template="wangpan" style="display: none;"><div class="conn clear"><div class="left-menu"><div class="icon-box" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box active" go="wangpan"><div class="icon"></div><span>网盘</span></div></div><div class="right-box"><div class="file-box"></div><div class="bottom-bar"><div class="image-upload-wrap" o-dragover="dragover"><input class="file-upload-input" type="file" o-change="readURL" accept="*"><span>上传图片</span></div></div></div></div></div>
     
 <!-- 框架script文件 -->
 <script src="./static/js/owo.core.js" type="text/javascript" charset="UTF-8"></script>
@@ -45,6 +49,40 @@ owo.script = {
         },
         "_name": "info"
       }]
+    }
+  },
+  "xuexi": {},
+  "wangpan": {
+    "readURL": function readURL() {
+      var input = this.$target;
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          // 上传
+          var requestOptions = {
+            method: 'POST',
+            body: JSON.stringify({
+              name: getFileName(input.value),
+              data: e.target.result,
+              path: '\\\\'
+            }),
+            redirect: 'follow'
+          };
+          fetch("https://going.run/upload?route=uploda&username=test&session=Df6pUi__GCh8ROku-F42OQ&userID=15", requestOptions).then(function (response) {
+            return response.json();
+          }).then(function (result) {
+            if (result.err == 0) {
+              console.log(result);
+            }
+          })["catch"](function (error) {
+            return console.log('error', error);
+          });
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
     }
   }
 };
