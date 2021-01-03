@@ -31,21 +31,21 @@
         span 英语学习
       .item-list
         .icon &#xe604;
-        span 编程学习
-      .item-list
-        .icon &#xe601;
         span 其他学科
+      .item-list
+        .icon(style="background-color: tomato;") &#xe604;
+        span 编程学习
       .line
       .item-list
-        .icon &#xe601;
+        .icon &#xe74b;
         span 错题集
       .line
       .item-list
-        .icon &#xe6c9;
+        .icon(style="background-color: brown;") &#xe6c9;
         span 打卡任务
       .line
       .item-list
-        .icon &#xebfd;
+        .icon(style="background-color: blueviolet;") &#xebfd;
         span 测试卷
     view.router(name="content" o-if="this.data.config")
       .router-item(route="info" src="./src/route/info.owo")
@@ -85,7 +85,7 @@
     span {
       font-weight: bold;
       padding-left: 10px;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
