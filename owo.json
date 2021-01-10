@@ -68,6 +68,11 @@
 			"name": "main",
 			"src": "./src/main.js",
 			"resource": true
+		},
+		{
+			"name": "notice",
+			"afterbody": true,
+			"src": "./owo_modules/notice.js"
 		}
 	],
 	"styleList": [
@@ -95,6 +100,11 @@
 		{
 			"name": "wangpan",
 			"src": "/src/page/wangpan.owo",
+			"type": "page"
+		},
+		{
+			"name": "zuoye",
+			"src": "/src/page/zuoye.owo",
 			"type": "page"
 		}
 	],

@@ -73,47 +73,11 @@ li {
   text-indent: 2em;
   line-height: 30px;
 }
-.home .show-list {
-  width: 200px;
-  background-color: #f5f9ff;
-}
-
-.home .show-list .active {
-  background-color: white;
-}
-
-.home .show-list .item-list {
-  line-height: 35px;
-  padding: 5px 10px;
-  display: flex;
-  color: #333;
-  cursor: pointer;
-}
-
-.home .show-list .item-list .icon {
-  width: 35px;
-  text-align: center;
-  font-size: 26px;
-  background-color: #ffac00;
-  color: white;
-  border-radius: 7px;
-}
-
-.home .show-list .item-list span {
-  font-weight: bold;
-  padding-left: 10px;
-  font-size: 14px;
-}
-
-.home .line {
-  margin: 0 5px;
-  border-bottom: 1px dotted gainsboro;
-}
-
 .home .router {
-  width: calc(100% - 260px);
+  width: calc(100% - 250px);
   height: calc(100% - 20px);
   padding: 10px;
+  padding-right: 0;
 }
 
 .wangpan .right-box {
@@ -122,7 +86,8 @@ li {
 }
 
 .wangpan .file-box {
-  height: calc(100% - 40px);
+  height: calc(100% - 90px);
+  padding: 10px;
 }
 
 .wangpan .bottom-bar {
@@ -155,4 +120,33 @@ li {
 .wangpan .bottom-bar {
   background-color: ghostwhite;
 }
+
+.wangpan .title-bar {
+  background-color: deepskyblue;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.wangpan .file-item {
+  width: 70px;
+  height: 80px;
+}
+
+.wangpan .file-item a,
+.wangpan .file-item img {
+  display: block;
+}
+
+.wangpan .file-item img {
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.wangpan .file-item .name {
+  text-align: center;
+}
+
 

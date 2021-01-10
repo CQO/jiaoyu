@@ -84,12 +84,12 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
 
 @font-face {
   font-family: 'iconfont';  /* project id 2267443 */
-  src: url('//at.alicdn.com/t/font_2267443_2s87qub66r6.eot');
-  src: url('//at.alicdn.com/t/font_2267443_2s87qub66r6.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2267443_2s87qub66r6.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2267443_2s87qub66r6.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2267443_2s87qub66r6.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2267443_2s87qub66r6.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.eot');
+  src: url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2267443_z1pkyywgk5a.svg#iconfont') format('svg');
 }
 
 .icon {
@@ -101,8 +101,10 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
 }
 
 .router-item {
-  width: 100%;
+  width: calc(100% - 10px);
   height: 100%;
+  overflow: auto;
+  padding-right: 10px;
 }
 
 .conn {
@@ -131,4 +133,68 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
 }
 .left-menu .icon-box.active {
   color: #009fe9;
+}
+
+@font-face {
+  font-family: 'file';  /* project id 2306215 */
+  src: url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.eot');
+  src: url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2306215_rj4m2u8t2so.svg#file') format('svg');
+}
+
+.file-icon {
+  font-family: "file";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  user-select: none;
+}
+
+.page {
+  display: flex;
+}
+
+.item-list {
+  line-height: 35px;
+  padding: 5px 10px;
+  display: flex;
+  color: #333;
+  cursor: pointer;
+}
+
+.item-list .icon {
+  width: 35px;
+  text-align: center;
+  font-size: 26px;
+  background-color: #ffac00;
+  color: white;
+  border-radius: 7px;
+}
+
+.item-list span {
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.line {
+  margin: 0 5px;
+  border-bottom: 1px dotted gainsboro;
+}
+
+.show-list {
+  width: 200px;
+  height: 100%;
+  background-color: #f5f9ff;
+}
+
+.show-list .active {
+  background-color: white;
+}
+
+.right-box {
+  width: calc(100% - 40px);
 }

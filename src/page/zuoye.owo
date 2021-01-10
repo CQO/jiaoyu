@@ -1,0 +1,27 @@
+<template lang="pug">
+.xuexi
+  .conn
+    .left-menu
+      .icon-box(go="page")
+        .icon &#xe600;
+        span 消息
+      .icon-box(go="xuexi")
+        .icon &#xe7ef;
+        span 学习
+      .icon-box.active(go="zuoye")
+        .icon &#xe62d;
+        span 作业
+      .icon-box(go="wangpan")
+        .icon &#xe63f;
+        span 网盘
+  .right-box
+</template>
+<script>
+module.exports = {
+}
+</script>
+<style lang="less">
+.right-box {
+  
+}
+</style>

@@ -8,11 +8,19 @@
       .icon-box(go="xuexi")
         .icon &#xe7ef;
         span 学习
+      .icon-box(go="zuoye")
+        .icon &#xe62d;
+        span 作业
       .icon-box.active(go="wangpan")
         .icon &#xe63f;
         span 网盘
     .right-box
-      .file-box
+      .title-bar 我的网盘
+      .file-box.clear
+        .file-item.fl(o-for="this.data.myFileList")
+          img(src="@|jpg.svg|")
+          .name {value.name}
+            
       .bottom-bar
         .image-upload-wrap(o-dragover="dragover")
           input.file-upload-input(type="file" o-change="readURL" accept="*")
@@ -20,6 +28,9 @@
 </template>
 <script>
 module.exports = {
+  data: {
+    myFileList: []
+  },
   readURL: function () {
     const input = this.$target
     if (input.files && input.files[0]) {
@@ -40,6 +51,8 @@ module.exports = {
           .then(result => {
             if (result.err == 0) {
               console.log(result)
+              owo.tool.notice('文件上传成功!')
+              this.getUserData()
             }
           })
           .catch(error => console.log('error', error));
@@ -47,6 +60,24 @@ module.exports = {
 
       reader.readAsDataURL(input.files[0]);
     }
+  },
+  getUserData: function () {
+    // 获取用户数据
+    fetch(`https://going.run/upload?route=getInfo&username=test&session=Gsyugj85eoAebnzN&userID=15`, {method: 'GET'})
+      .then(response => response.json())
+      .then(result => {
+        if (result.err == 0) {
+          console.log(result)
+          this.data.myFileList = result.value
+          setTimeout(() => {
+            this.handleEvent(this, this.query('.file-box'))
+          }, 100);
+        }
+      })
+      .catch(error => console.log('error', error));
+  },
+  show: function () {
+    this.getUserData()
   }
 }
 </script>
@@ -56,7 +87,8 @@ module.exports = {
   width: calc(100% - 40px);
 }
 .file-box {
-  height: calc(100% - 40px);
+  height: calc(100% - 90px);
+  padding: 10px;
 }
 .bottom-bar {
   height: 40px;
@@ -83,5 +115,27 @@ module.exports = {
 }
 .bottom-bar {
   background-color: ghostwhite;
+}
+.title-bar {
+  background-color: deepskyblue;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 5px;
+  color: white;
+  font-weight: bold;
+}
+.file-item {
+  width: 70px;
+  height: 80px;
+  a, img {
+    display: block;
+  }
+  img {
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+  .name {
+    text-align: center;
+  }
 }
 </style>
