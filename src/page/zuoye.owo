@@ -14,7 +14,28 @@
       .icon-box(go="wangpan")
         .icon &#xe63f;
         span 网盘
-  .right-box
+    .right-box
+      .show-list
+        .item-list
+          .icon &#xe601;
+          span 语文作业
+        .item-list
+          .icon &#xe601;
+          span 数学作业
+        .item-list
+          .icon &#xe601;
+          span 英语作业
+        .item-list
+          .icon &#xe604;
+          span 其他作业
+        .line
+        .item-list
+          .icon &#xe74b;
+          span 错题集
+        .line
+        .item-list
+          .icon(style="background-color: blueviolet;") &#xebfd;
+          span 测试卷
 </template>
 <script>
 module.exports = {

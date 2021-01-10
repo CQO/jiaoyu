@@ -15,19 +15,16 @@
         .icon &#xe63f;
         span 网盘
     .show-list
-      .item-list.active(go="/view-content=info" o-class-active="this.view.content._activeName == 'info'")
+      .item-list(go="/view-content=info" o-class-active="this.view.content._activeName == 'info'")
         .icon &#xe65e;
         span 家校通知
       .line
-      .item-list
+      .item-list(go="/view-content=daka" o-class-active="this.view.content._activeName == 'daka'")
         .icon(style="background-color: brown;") &#xe6c9;
         span 打卡任务
-      .line
-      .item-list
-        .icon(style="background-color: blueviolet;") &#xebfd;
-        span 测试卷
     view.router(name="content" o-if="this.data.config")
       .router-item(route="info" src="./src/route/info.owo")
+      .router-item(route="daka" src="./src/route/daka.owo")
 </template>
 
 <script>

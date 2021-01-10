@@ -1,0 +1,23 @@
+<template lang="pug">
+.daka
+  img.show(src="@|show-1.png|")
+  .button 今日打卡
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+    }
+  }
+</script>
+
+
+<style lang="less">
+.show {
+  display: block;
+  margin: 60px auto;
+}
+.button {
+  margin: 0 auto;
+}
+</style>

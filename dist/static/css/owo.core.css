@@ -73,6 +73,14 @@ li {
   text-indent: 2em;
   line-height: 30px;
 }
+.daka .show {
+  display: block;
+  margin: 60px auto;
+}
+
+.daka .button {
+  margin: 0 auto;
+}
 .home .router {
   width: calc(100% - 250px);
   height: calc(100% - 20px);
@@ -80,9 +88,13 @@ li {
   padding-right: 0;
 }
 
-.wangpan .right-box {
+.wangpan .right {
   height: 100%;
   width: calc(100% - 40px);
+}
+
+.wangpan .conn {
+  width: 100%;
 }
 
 .wangpan .file-box {

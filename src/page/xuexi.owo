@@ -14,43 +14,23 @@
       .icon-box(go="wangpan")
         .icon &#xe63f;
         span 网盘
-  .right-box
-    .show-list
-      .item-list.active
-        .icon &#xe65e;
-        span 家校通知
-      .line
-      .item-list
-        .icon &#xe62d;
-        span 学科作业
-      .line
-      .item-list
-        .icon &#xe601;
-        span 语文学习
-      .item-list
-        .icon &#xe601;
-        span 数学学习
-      .item-list
-        .icon &#xe601;
-        span 英语学习
-      .item-list
-        .icon &#xe604;
-        span 其他学科
-      .item-list
-        .icon(style="background-color: tomato;") &#xe604;
-        span 编程学习
-      .line
-      .item-list
-        .icon &#xe74b;
-        span 错题集
-      .line
-      .item-list
-        .icon(style="background-color: brown;") &#xe6c9;
-        span 打卡任务
-      .line
-      .item-list
-        .icon(style="background-color: blueviolet;") &#xebfd;
-        span 测试卷
+    .right-box
+      .show-list
+        .item-list
+          .icon &#xe601;
+          span 语文学习
+        .item-list
+          .icon &#xe601;
+          span 数学学习
+        .item-list
+          .icon &#xe601;
+          span 英语学习
+        .item-list
+          .icon &#xe604;
+          span 其他学科
+        .item-list
+          .icon(style="background-color: tomato;") &#xe604;
+          span 编程学习
 </template>
 <script>
 module.exports = {

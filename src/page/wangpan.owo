@@ -14,7 +14,7 @@
       .icon-box.active(go="wangpan")
         .icon &#xe63f;
         span 网盘
-    .right-box
+    .right
       .title-bar 我的网盘
       .file-box.clear
         .file-item.fl(o-for="this.data.myFileList")
@@ -82,9 +82,12 @@ module.exports = {
 }
 </script>
 <style lang="less">
-.right-box {
+.right {
   height: 100%;
   width: calc(100% - 40px);
+}
+.conn {
+  width: 100%;
 }
 .file-box {
   height: calc(100% - 90px);
