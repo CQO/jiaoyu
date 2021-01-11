@@ -160,5 +160,53 @@ li {
 .wangpan .file-item .name {
   text-align: center;
 }
+.xuexi .right-box li {
+  background-image: url('../resource/li.svg');
+  line-height: 40px;
+  border-bottom: 1px dotted #ccc;
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding-left: 40px;
+  font-size: 18px;
+  color: #666;
+  position: relative;
+}
 
+.xuexi .right-box li .info {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  color: tomato;
+  line-height: 40px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.xuexi .right-box li span {
+  display: inline-block;
+  line-height: 40px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.xuexi .right-box li:hover {
+  background-color: beige;
+  border-color: beige;
+}
+
+.xuexi .no-data {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
 

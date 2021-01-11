@@ -16,33 +16,116 @@
         span 网盘
     .right-box
       .show-list
-        .item-list
+        .item-list(o-tap="showList('yuwen')")
           .icon &#xe601;
           span 语文作业
-        .item-list
+        .item-list(o-tap="showList('shuxue')")
           .icon &#xe601;
           span 数学作业
-        .item-list
+        .item-list(o-tap="showList('yingyu')")
           .icon &#xe601;
           span 英语作业
-        .item-list
+        .item-list(o-tap="showList('qita')")
           .icon &#xe604;
           span 其他作业
         .line
         .item-list
           .icon &#xe74b;
-          span 错题集
+          span 语文错题
+        .item-list
+          .icon &#xe74b;
+          span 数学错题
+        .item-list
+          .icon &#xe74b;
+          span 英语错题
         .line
         .item-list
           .icon(style="background-color: blueviolet;") &#xebfd;
           span 测试卷
+      .show-box
 </template>
 <script>
 module.exports = {
+  data: {
+    "mock": {
+      "yuwen": [
+        {"name": "2020年测试卷", "num": 100},
+        {"name": "2020年测试卷2", "num": 100},
+        {"name": "2020年测试卷3"},
+      ],
+
+    },
+  },
+  created: function () {
+    this.showList('yuwen')
+  },
+  showList: function (key) {
+    this.queryAll('.item-list').forEach(element => {
+      element.classList.remove('active')
+    })
+    if (this.$target) {
+      this.$target.classList.add('active')
+    } else {
+      this.query('.item-list').classList.add('active')
+    }
+    if (this.data['mock'][key] && this.data['mock'][key].length > 0) {
+      let newHtml = '<ul>'
+      this.data['mock'][key].forEach(element => {
+        if (element.num) {
+          newHtml += `<li><span>${element.name}</span><div class="info">成绩:${element.num}分</div></li>`
+        } else {
+          newHtml += `<li><span>${element.name}</span></li>`
+        }
+        
+      });
+      newHtml += `</ul>`
+      this.query('.show-box').innerHTML = newHtml
+    } else {
+      this.query('.show-box').innerHTML = `<img class="no-data" src="@|nodata.png|">`
+    }
+  }
 }
 </script>
 <style lang="less">
 .right-box {
-  
+  li {
+    background-image: url('@|li.svg|');
+    line-height: 40px;
+    border-bottom: 1px dotted #ccc;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 40px;
+    font-size: 18px;
+    color: #666;
+    position: relative;
+    .info {
+      position: absolute;
+      right: 10px;
+      font-size: 14px;
+      color: tomato;
+      line-height: 40px;
+      user-select: none;
+      pointer-events: none;
+    }
+    span {
+      display: inline-block;
+      line-height: 40px;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+  li:hover {
+    background-color: beige;
+    border-color: beige;
+  }
+}
+.no-data {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 </style>

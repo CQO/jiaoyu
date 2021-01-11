@@ -34,7 +34,7 @@
     <!-- 页面[wangpan]-->
     <div class="wangpan page" template="wangpan" style="display: none;"><div class="conn clear"><div class="left-menu"><div class="icon-box" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box" go="zuoye"><div class="icon"></div><span>作业</span></div><div class="icon-box active" go="wangpan"><div class="icon"></div><span>网盘</span></div></div><div class="right"><div class="title-bar">我的网盘</div><div class="file-box clear"><div class="file-item fl" o-for="this.data.myFileList"><img src="./static/resource/jpg.svg"><div class="name">{value.name}</div></div></div><div class="bottom-bar"><div class="image-upload-wrap" o-dragover="dragover"><input class="file-upload-input" type="file" o-change="readURL" accept="*"><span>上传图片</span></div></div></div></div></div>
     <!-- 页面[zuoye]-->
-    <div class="xuexi page" template="zuoye" style="display: none;"><div class="conn"><div class="left-menu"><div class="icon-box" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box active" go="zuoye"><div class="icon"></div><span>作业</span></div><div class="icon-box" go="wangpan"><div class="icon"></div><span>网盘</span></div></div><div class="right-box"><div class="show-list"><div class="item-list"><div class="icon"></div><span>语文作业</span></div><div class="item-list"><div class="icon"></div><span>数学作业</span></div><div class="item-list"><div class="icon"></div><span>英语作业</span></div><div class="item-list"><div class="icon"></div><span>其他作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>错题集</span></div><div class="line"></div><div class="item-list"><div class="icon" style="background-color: blueviolet;"></div><span>测试卷</span></div></div></div></div></div>
+    <div class="xuexi page" template="zuoye" style="display: none;"><div class="conn"><div class="left-menu"><div class="icon-box" go="page"><div class="icon"></div><span>消息</span></div><div class="icon-box" go="xuexi"><div class="icon"></div><span>学习</span></div><div class="icon-box active" go="zuoye"><div class="icon"></div><span>作业</span></div><div class="icon-box" go="wangpan"><div class="icon"></div><span>网盘</span></div></div><div class="right-box"><div class="show-list"><div class="item-list" o-tap="showList('yuwen')"><div class="icon"></div><span>语文作业</span></div><div class="item-list" o-tap="showList('shuxue')"><div class="icon"></div><span>数学作业</span></div><div class="item-list" o-tap="showList('yingyu')"><div class="icon"></div><span>英语作业</span></div><div class="item-list" o-tap="showList('qita')"><div class="icon"></div><span>其他作业</span></div><div class="line"></div><div class="item-list"><div class="icon"></div><span>语文错题</span></div><div class="item-list"><div class="icon"></div><span>数学错题</span></div><div class="item-list"><div class="icon"></div><span>英语错题</span></div><div class="line"></div><div class="item-list"><div class="icon" style="background-color: blueviolet;"></div><span>测试卷</span></div></div><div class="show-box"></div></div></div></div>
     
 <!-- 框架script文件 -->
 <script src="./static/js/owo.core.js" type="text/javascript" charset="UTF-8"></script>
@@ -123,7 +123,50 @@ owo.script = {
       this.getUserData();
     }
   },
-  "zuoye": {}
+  "zuoye": {
+    "data": {
+      "mock": {
+        "yuwen": [{
+          "name": "2020年测试卷",
+          "num": 100
+        }, {
+          "name": "2020年测试卷2",
+          "num": 100
+        }, {
+          "name": "2020年测试卷3"
+        }]
+      }
+    },
+    "created": function created() {
+      this.showList('yuwen');
+    },
+    "showList": function showList(key) {
+      this.queryAll('.item-list').forEach(function (element) {
+        element.classList.remove('active');
+      });
+
+      if (this.$target) {
+        this.$target.classList.add('active');
+      } else {
+        this.query('.item-list').classList.add('active');
+      }
+
+      if (this.data['mock'][key] && this.data['mock'][key].length > 0) {
+        var newHtml = '<ul>';
+        this.data['mock'][key].forEach(function (element) {
+          if (element.num) {
+            newHtml += "<li><span>" + element.name + "</span><div class=\"info\">\u6210\u7EE9:" + element.num + "\u5206</div></li>";
+          } else {
+            newHtml += "<li><span>" + element.name + "</span></li>";
+          }
+        });
+        newHtml += "</ul>";
+        this.query('.show-box').innerHTML = newHtml;
+      } else {
+        this.query('.show-box').innerHTML = "<img class=\"no-data\" src=\"./static/resource/nodata.png\">";
+      }
+    }
+  }
 };
 </script>
 
