@@ -1,4 +1,4 @@
-// Tue Jan 12 2021 01:22:55 GMT+0800 (GMT+08:00)
+// Sat Jan 16 2021 22:21:08 GMT+0800 (GMT+08:00)
 var owo = {tool: {},state: {},event: {}};
 /* 方法合集 */
 var _owo = {
@@ -707,6 +707,7 @@ View.prototype.showName = function (name) {
   if (this._activeName == name) {
     oldRoute.$el.setAttribute('route-active', 'true')
     owo.state[viewName + '_changeing'] = false
+    owo.state.routeBusy = false
     return
   }
   // 根据index

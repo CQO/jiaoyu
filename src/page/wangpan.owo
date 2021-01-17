@@ -24,7 +24,7 @@
       .bottom-bar
         .image-upload-wrap(o-dragover="dragover")
           input.file-upload-input(type="file" o-change="readURL" accept="*")
-          span 上传图片
+          span 上传文件
 </template>
 <script>
 module.exports = {

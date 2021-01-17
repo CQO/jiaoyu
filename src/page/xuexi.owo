@@ -31,6 +31,19 @@
         .item-list
           .icon(style="background-color: tomato;") &#xe604;
           span 编程学习
+      .show-box
+        p.cent yàn zǐ
+        p.cent 燕子
+        p.cent zhèng zhèn duó
+        p.cent 郑振铎
+        .pitem yī shēn wū hēi guāng liàng de yǔ máo ，yī duì jun4 qiào qīng kuài de chì bǎng ，jiā shàng yī shuāng jiǎn dāo sì de wěi bā ，còu chéng le nà yàng huó pō kě ài de xiǎo yàn zǐ 。
+        .pitem 一身乌黑光亮的羽毛，一对俊俏轻快的翅膀，加上一双剪刀似的尾巴，凑成了那样活泼可爱的小燕子。<div class="icon">&#xe753;</div>
+        .pitem yáng chūn sān yuè ，cái xià guò jǐ zhèn méng méng de xì yǔ 。wēi fēng chuī fú zhe qiān wàn tiáo cái zhǎn kāi huáng lǜ méi yǎn de róu liǔ 。qīng de cǎo lǜ de yè ，gè zhǒng sè cǎi xiān yàn de huā ，dōu xiàng gǎn jí sì de jù lǒng lái ，xíng chéng le guāng cǎi duó mù de chūn tiān 。xiǎo yàn zǐ yě cóng nán fāng gǎn lái le ，wéi chūn guāng zēng tiān le xǔ duō shēng qù 。
+        .pitem 阳春三月，才下过几阵蒙蒙的细雨。微风吹拂着千万条才展开黄绿眉眼的柔柳。青的草绿的叶，各种色彩鲜艳的花，都像赶集似的聚拢来，形成了光彩夺目的春天。小燕子也从南方赶来了，为春光增添了许多生趣。<div class="icon">&#xe753;</div>
+        .pitem zài wēi fēng zhōng ，zài yáng guāng zhōng ，yàn zǐ xié zhe shēn zǐ cóng tiān kōng zhōng luě guò ，qīng de yī shēng ，yǐ yóu zhè biān de dào tián shàng ，fēi dào le nà biān de gāo liǔ zhī xià 。yǒu de héng luě guò bō guāng lín lín de hú miàn ，qián wěi huò yì jiān ǒu ěr zhān le yī xià shuǐ miàn ，nà xiǎo yuán yūn jiù yī quān yī quān de dàng yàng kāi qù 。
+        .pitem 在微风中，在阳光中，燕子斜着身子从天空中掠过，卿的一声，已由这边的稻田上，飞到了那边的高柳之下。有的横掠过波光粼粼的湖面，前尾或翼尖偶尔沾了一下水面，那小圆晕就一圈一圈的荡漾开去。<div class="icon">&#xe753;</div>
+        .pitem jǐ duì yàn zǐ fēi juàn le ，tíng zài diàn xiàn shàng lán lán de tiān kōng zhōng ，jǐ hén xì xiàn lián zài diàn gǎn zhī jiān ，zhè duō me xiàng zhèng dài yǎn zòu de qǔ pǔ ā ！
+        .pitem 几对燕子飞倦了，停在电线上蓝蓝的天空中，几痕细线连在电杆之间，这多么像正待演奏的曲谱啊！ <div class="icon">&#xe753;</div>
 </template>
 <script>
 module.exports = {
@@ -39,5 +52,19 @@ module.exports = {
 <style lang="less">
 .right-box {
   
+}
+.show-box {
+  font-size: 20px;
+  line-height: 32px;
+  text-indent: 2em;
+  .pitem {
+    margin-bottom: 10px;
+  }
+  .cent {
+    text-align: center;
+  }
+}
+.pitem .icon {
+  color: #366ed2;
 }
 </style>

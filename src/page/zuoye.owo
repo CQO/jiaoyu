@@ -69,12 +69,12 @@ module.exports = {
       this.query('.item-list').classList.add('active')
     }
     if (this.data['mock'][key] && this.data['mock'][key].length > 0) {
-      let newHtml = '<ul>'
+      let newHtml = '<ul class="clear">'
       this.data['mock'][key].forEach(element => {
         if (element.num) {
-          newHtml += `<li><span>${element.name}</span><div class="info">成绩:${element.num}分</div></li>`
+          newHtml += `<li><span>${element.name}</span><div class="info">成绩:${element.num}分</div><img class="anniu" src="@|ywc.png|"></li>`
         } else {
-          newHtml += `<li><span>${element.name}</span></li>`
+          newHtml += `<li><span>${element.name}</span><img class="anniu" src="@|wwc.png|"></li>`
         }
         
       });
@@ -89,30 +89,39 @@ module.exports = {
 <style lang="less">
 .right-box {
   li {
-    background-image: url('@|li.svg|');
     line-height: 40px;
-    border-bottom: 1px dotted #ccc;
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    padding-left: 40px;
+    border: 1px dotted #ccc;
+    background-size: 160px;
+    padding: 15px;
     font-size: 18px;
     color: #666;
     position: relative;
+    float: left;
+    width: 180px;
+    height: 250px;
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: white;
+    background-image: url('@|card.png|');
     .info {
-      position: absolute;
-      right: 10px;
-      font-size: 14px;
-      color: tomato;
       line-height: 40px;
       user-select: none;
       pointer-events: none;
+      background-image: url('@|bi.png|');
+      background-repeat: no-repeat;
+      background-size: 35px;
+      padding-left: 40px;
+      color: #6687e5;
+      font-size: 17px;
+      background-position: left center;
     }
     span {
       display: inline-block;
       line-height: 40px;
       user-select: none;
       pointer-events: none;
+      font-weight: bold;
+      font-size: 24px;
     }
   }
   li:hover {
@@ -126,6 +135,14 @@ module.exports = {
   right: 0;
   top: 0;
   bottom: 0;
+  margin: auto;
+}
+.anniu {
+  width: 120px;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
   margin: auto;
 }
 </style>
